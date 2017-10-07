@@ -14,20 +14,27 @@
     
           display.value += buttons[i].value;
           let strVal = display.value;
+          let parse;
+          let ans = 0;
           // console.log(strVal); every symbol
           for(let i = 0;i<strVal.length;i++){
             if(strVal[i] == "+"){
-              let parse = strVal.split('+');
-              let temp;
+              parse = strVal.split('+');
                 for(let i = 0; i<parse.length;i++){
                   parse[i] = +parse[i];
                 }
-              return console.log(parse[i]+parse[i+1]);
+                parse.forEach(function(item, i, parse){
+                  ans += item;
+                  console.log(ans);
+                });
             }
+            
+              
           }
-    
+         
         }, false);
       }
+      
     //   let function ParseSimple(expr){
     //       while(expr == ' ')
     //         expr++;
