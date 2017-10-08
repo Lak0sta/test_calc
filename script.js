@@ -16,21 +16,22 @@
           let strVal = display.value;
           let parse;
           let ans = 0;
-          // console.log(strVal); every symbol
-          for(let i = 0;i<strVal.length;i++){
-            if(strVal[i] == "+"){
-              parse = strVal.split('+');
-                for(let i = 0; i<parse.length;i++){
-                  parse[i] = +parse[i];
-                }
-                parse.forEach(function(item, i, parse){
-                  ans += item;
-                  console.log(ans);
-                });
+          let plus = () =>{
+            parse = strVal.split('+');
+            for(let i = 0; i<parse.length;i++){
+              parse[i] = +parse[i];
             }
-            
-              
+            parse.forEach(function(item, i, parse){
+              ans += item; 
+            });
           }
+          
+          // console.log(strVal); every symbol
+            if(~strVal.indexOf("+")){
+             plus();
+            }
+            // индекс оф экспрешн, то есть добавляет символ, а уже от него вызывает ф-цию
+          console.log(ans);
          
         }, false);
       }
