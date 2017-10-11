@@ -15,10 +15,16 @@
           strVal = display.value;}, false);
     }
     function calc(input){
-        if(~input.indexOf('(') && ~input.indexOf(')'))
+        if(~input.indexOf('(') && ~input.indexOf(')')){
             setTimeout(function(){
-                calc(input)},0);
-            input = input.replace(/[^0-9%^*\/\-+.]/g,'');
+                calc(input);
+                input.replace("/\(\)/g",'');
+            },0);
+              
+                
+        }
+            
+        // input = input.replace(/[^0-9%^*\/\-+.]/g,'');
         var f = { add : '+', 
                   sub : '-', 
                   div : '/', 
