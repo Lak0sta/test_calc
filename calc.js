@@ -17,13 +17,13 @@
     function calc(input){
         if(~input.indexOf('(') && ~input.indexOf(')')){
             setTimeout(function(){
-                calc(input);
-                input.replace("/\(\)/g",'');
-            },0);
-              
+                input = calc(input).replace(/[()]/g,'');
                 
-        }
+            },0);
             
+            // input.replace("/\(\)/g",'');         
+        }
+        // input=calc(input).replace(/[()]/g
         // input = input.replace(/[^0-9%^*\/\-+.]/g,'');
         var f = { add : '+', 
                   sub : '-', 
