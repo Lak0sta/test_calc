@@ -18,9 +18,7 @@
         if(~input.indexOf('(') && ~input.indexOf(')'))
             setTimeout(function(){
                 calc(input)},0);
-            for(let i =0;i<input.length;i++){
-
-            }    
+            input = input.replace(/[^0-9%^*\/\-+.]/g,'');
         var f = { add : '+', 
                   sub : '-', 
                   div : '/', 
