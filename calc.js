@@ -14,15 +14,44 @@
           display.value += buttons[i].value;
           strVal = display.value;}, false);
     }
+   
+        // if(~input.indexOf('(') && ~input.indexOf(')')){
+        //     setTimeout(function(){
+        //         input = calc(input);
+        //     },0);
+        // }
+        // var a = '(3+3+4+6)';
+        // var startTag = a.indexOf('(');
+        // var endTag = a.indexOf(')',startTag);
+        // console.log(a.slice(startTag+1,endTag));
+        // console.log(a);
+        
+        
     function calc(input){
-        if(~input.indexOf('(') && ~input.indexOf(')')){
+        var startTag = input.indexOf('(');
+        var endTag = input.indexOf(')',startTag);
+        if(startTag != -1 && endTag!= -1)
             setTimeout(function(){
-                input = calc(input).replace(/[()]/g,'');
+                
+                input = input.replace(/[^0-9%^*\/\-+.]/g,'');
+                calc(input);
                 
             },0);
             
-            // input.replace("/\(\)/g",'');         
-        }
+        
+        // if(~input.indexOf('(') && ~input.indexOf(')')){
+        //     setTimeout(function(){
+        //         // input = input.replace(/[^0-9%^*\/\-+.]/g,'');
+        //         // input =input.slice(startTag+1,endTag);
+        //         output = calc(input);
+               
+        //         // return calc(input);
+        //     },0);
+            
+            
+        //     // input.replace("/\(\)/g",'');         
+        // }
+        
         // input=calc(input).replace(/[()]/g
         // input = input.replace(/[^0-9%^*\/\-+.]/g,'');
         var f = { add : '+', 
@@ -73,7 +102,7 @@
       };
     document.getElementsByClassName('clear')[0].addEventListener('click', clear, false);
     let equal = () => {
-     display.value = calc(display.value);
+     display.value = calc(strVal);
     };
     document.getElementsByClassName('equal')[0].addEventListener('click',equal,false);
 })();
